@@ -210,6 +210,9 @@ ported to Mingw-w64][san] ([also][san2]), but Undefined Behavior Sanitizer
 `-fsanitize-trap`, GDB will [break precisely][break] on undefined
 behavior, and it does not require linking with libsanitizer.
 
+GCC is built without libiconv, required by options `-finput-charset` and
+`-fexec-charset`.
+
 ## Licenses
 
 When distributing binaries built using w64devkit, your .exe will include
