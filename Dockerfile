@@ -494,9 +494,9 @@ RUN $ARCH-gcc -DEXE=gcc.exe -DCMD=cc \
  && $ARCH-gcc -DEXE=gcc.exe -DCMD="cc -ansi" \
         -Oz -fno-asynchronous-unwind-tables -Wl,--gc-sections -s -nostdlib \
         -o $PREFIX/bin/c89.exe $PREFIX/src/alias.c -lkernel32 \
- && printf '%s\n' addr2line ar as c++filt cpp dlltool dllwrap elfedit g++ \
+ && printf '%s\n' addr2line ar as c++filt cpp dlltool dllwrap g++ \
       gcc gcc-ar gcc-nm gcc-ranlib gcov gcov-dump gcov-tool gendef gfortran \
-      ld nm objcopy objdump ranlib readelf size strings strip uuidgen widl \
+      ld nm objcopy objdump ranlib size strings strip uuidgen widl \
       windmc windres \
     | xargs -I{} -P$(nproc) \
           $ARCH-gcc -DEXE={}.exe -DCMD=$ARCH-{} \
