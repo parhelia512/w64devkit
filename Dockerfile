@@ -722,6 +722,8 @@ RUN make -j$(nproc) -C programs zstd \
 FROM cross AS build-ccache
 COPY --from=dl-ccache /dl/ /dl/
 COPY --from=build-zstd /deps/ /deps/
+COPY src/ccache-*.patch $PREFIX/src/
+RUN cat $PREFIX/src/ccache-*.patch | patch -d/dl/ccache -p1
 
 WORKDIR /dl/xxhash
 RUN make -j$(nproc) CC=$ARCH-gcc AR=$ARCH-ar CFLAGS="-O2" libxxhash.a \
